@@ -26,7 +26,11 @@
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame Margin="0,6" Padding="12" CornerRadius="12" HasShadow="True">
+                        <Frame Margin="0,6"
+                               Padding="12"
+                               CornerRadius="12"
+                               HasShadow="True"
+                               BorderColor="{AppThemeBinding Light={StaticResource ColorAlertAccentLight}, Dark={StaticResource ColorAlertAccentDark}}">
                             <VerticalStackLayout Spacing="8">
                                 <Label Text="{Binding MessaggioDisplay}" FontAttributes="Bold" FontSize="16" />
 
@@ -43,6 +47,7 @@
                                 <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
                                     <Button Grid.Column="0"
                                             Text="✕"
+                                            Style="{StaticResource AlertAccentButtonStyle}"
                                             Clicked="OnCloseEventClicked"
                                             CommandParameter="{Binding IdTestataAllarme}" />
                                     <Button Grid.Column="1"

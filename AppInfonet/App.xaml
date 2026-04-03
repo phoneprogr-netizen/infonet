@@ -44,9 +44,13 @@
 
             <Color x:Key="ColorDangerLight">#8B1E1E</Color>
             <Color x:Key="ColorDangerDark">#FF6B6B</Color>
+            <Color x:Key="ColorAlertAccentLight">#FF5963</Color>
+            <Color x:Key="ColorAlertAccentDark">#FF5963</Color>
 
             <Color x:Key="ColorOnDangerLight">#FFFFFF</Color>
             <Color x:Key="ColorOnDangerDark">#121212</Color>
+            <Color x:Key="ColorOnAlertAccentLight">#FFFFFF</Color>
+            <Color x:Key="ColorOnAlertAccentDark">#FFFFFF</Color>
 
             <!-- STILE PAGINE -->
             <Style TargetType="ContentPage">
@@ -104,6 +108,15 @@
                         </VisualStateGroup>
                     </VisualStateGroupList>
                 </Setter>
+            </Style>
+
+            <Style x:Key="AlertAccentButtonStyle" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                <Setter Property="BackgroundColor"
+                        Value="{AppThemeBinding Light={StaticResource ColorAlertAccentLight},
+                                                Dark={StaticResource ColorAlertAccentDark}}" />
+                <Setter Property="TextColor"
+                        Value="{AppThemeBinding Light={StaticResource ColorOnAlertAccentLight},
+                                                Dark={StaticResource ColorOnAlertAccentDark}}" />
             </Style>
 
             <!-- FRAME -->
