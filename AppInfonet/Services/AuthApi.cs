@@ -76,6 +76,44 @@ namespace AppInfonet.Services
             }
         }
 
+
+        public async Task<(bool Success, string Message)> RequestDeleteProfileAsync()
+        {
+            var mail = _sessionStore.Mail;
+            var username = _sessionStore.Username;
+            var idCliente = _sessionStore.IdCliente;
+
+            if (string.IsNullOrWhiteSpace(mail) || string.IsNullOrWhiteSpace(username) || !idCliente.HasValue)
+                return (false, "Dati utente non disponibili per la richiesta.");
+
+            var payload = new
+            {
+                mail,
+                username,
+                idCliente = idCliente.Value
+            };
+
+            using var request = new HttpRequestMessage(HttpMethod.Post, "api/Account/RequestDeleteProfile");
+            request.Content = new StringContent(
+                JsonSerializer.Serialize(payload),
+                Encoding.UTF8,
+                "application/json");
+
+            using var response = await _httpClient.SendAsync(request);
+            var responseText = (await response.Content.ReadAsStringAsync()).Trim().Trim('"');
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return (false, string.IsNullOrWhiteSpace(responseText)
+                    ? "Errore durante l'invio della richiesta di eliminazione profilo."
+                    : responseText);
+            }
+
+            return (true, string.IsNullOrWhiteSpace(responseText)
+                ? "Richiesta inviata. Riceverai una mail di conferma eliminazione account."
+                : responseText);
+        }
+
         public async Task<DashboardV2Response?> GetDashboardDevicesAsync()
         {
             // leggo le credenziali dal SessionStore

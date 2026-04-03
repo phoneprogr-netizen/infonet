@@ -5,15 +5,76 @@
     Title="Profilo">
 
     <Grid RowDefinitions="*,Auto">
+        <ScrollView>
+            <VerticalStackLayout Padding="16" Spacing="16">
 
-        <!-- Contenuto futuro -->
-        <VerticalStackLayout Padding="20">
-            <Label Text="Profilo Utente"
-                   FontSize="24"
-                   FontAttributes="Bold"/>
-        </VerticalStackLayout>
+                <Frame BackgroundColor="#EFB339" CornerRadius="14" Padding="16" HasShadow="False">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Profilo"
+                               FontSize="24"
+                               FontAttributes="Bold"
+                               TextColor="#1D1D1B" />
 
-        <!-- Bottone Logout in basso -->
+                        <Image Source="iconprofilo.png"
+                               HeightRequest="70"
+                               WidthRequest="70"
+                               HorizontalOptions="Start" />
+
+                        <Label x:Name="MailLabel"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               TextColor="#1D1D1B"
+                               Text="mail@cliente.it" />
+
+                        <Label x:Name="UsernameLabel"
+                               FontSize="14"
+                               TextColor="#1D1D1B"
+                               Text="Username" />
+
+                        <Label x:Name="CodiceClienteLabel"
+                               FontSize="14"
+                               TextColor="#1D1D1B"
+                               Text="Codice cliente: -" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Padding="0" CornerRadius="12" HasShadow="False">
+                    <VerticalStackLayout Spacing="0">
+                        <Button Text="Modifica profilo"
+                                Clicked="OnModificaProfiloClicked"
+                                BackgroundColor="Transparent"
+                                TextColor="#1D1D1B"
+                                HorizontalOptions="Fill"
+                                HorizontalTextAlignment="Start" />
+                        <BoxView HeightRequest="1" Opacity="0.3" />
+
+                        <Button Text="Manuale d'uso"
+                                Clicked="OnManualeClicked"
+                                BackgroundColor="Transparent"
+                                TextColor="#1D1D1B"
+                                HorizontalOptions="Fill"
+                                HorizontalTextAlignment="Start" />
+                        <BoxView HeightRequest="1" Opacity="0.3" />
+
+                        <Button Text="Termini e condizioni"
+                                Clicked="OnTerminiClicked"
+                                BackgroundColor="Transparent"
+                                TextColor="#1D1D1B"
+                                HorizontalOptions="Fill"
+                                HorizontalTextAlignment="Start" />
+                        <BoxView HeightRequest="1" Opacity="0.3" />
+
+                        <Button Text="Richiesta eliminazione profilo"
+                                Clicked="OnDeleteProfileClicked"
+                                BackgroundColor="Transparent"
+                                TextColor="#8B1E1E"
+                                HorizontalOptions="Fill"
+                                HorizontalTextAlignment="Start" />
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+        </ScrollView>
+
         <Button
             Grid.Row="1"
             Text="Logout"
