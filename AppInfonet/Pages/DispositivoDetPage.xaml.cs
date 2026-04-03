@@ -133,14 +133,14 @@ namespace AppInfonet.Pages
             await Launcher.OpenAsync(uri);
         }
 
-        private async void OnIngressiClicked(object sender, EventArgs e)
+        private async void OnIngressiUsciteClicked(object sender, TappedEventArgs e)
         {
-            await Navigation.PushAsync(new DispositivoIngressiPage(_device));
+            await Navigation.PushAsync(new DispositivoIngressiUscitePage(_device));
         }
 
-        private async void OnUsciteClicked(object sender, EventArgs e)
+        private async void OnStoricoAllarmiClicked(object sender, TappedEventArgs e)
         {
-            await Navigation.PushAsync(new DispositivoUscitePage(_device));
+            await Navigation.PushAsync(new DispositivoStoricoAllarmiPage(_device));
         }
     }
 }
