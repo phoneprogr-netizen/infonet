@@ -21,7 +21,9 @@
                  Navigating="OnWebViewNavigating" />
 
         <Grid Grid.Row="1" ColumnDefinitions="*,*" Padding="12" ColumnSpacing="10">
-            <Button Text="Annulla" Clicked="OnCancelClicked" />
+            <Button Text="Annulla"
+                    Style="{StaticResource AlertAccentButtonStyle}"
+                    Clicked="OnCancelClicked" />
             <Button Grid.Column="1" Text="Salva" Clicked="OnSaveClicked" />
         </Grid>
 
