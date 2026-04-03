@@ -6,7 +6,7 @@
 
     <Grid RowDefinitions="Auto,*" Padding="0" RowSpacing="0">
 
-        <Grid Grid.Row="0" Padding="12" BackgroundColor="#F3F3F3">
+        <Grid Grid.Row="0" Padding="12" BackgroundColor="{DynamicResource CardBackgroundColor}">
             <Label Text="Tutti i bersagli"
                    FontSize="16"
                    FontAttributes="Bold" />

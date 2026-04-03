@@ -23,7 +23,7 @@
                 WidthRequest="28"
                 HeightRequest="28"
                 Padding="6"
-                BackgroundColor="Cyan"
+                BackgroundColor="{StaticResource BrandYellowDark}"
                 CornerRadius="16"
                 Clicked="OnMapButtonClicked" /> 
 
