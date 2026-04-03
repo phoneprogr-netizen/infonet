@@ -110,7 +110,7 @@
                 </Setter>
             </Style>
 
-            <Style x:Key="AlertAccentButtonStyle" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Style x:Key="AlertAccentButtonStyle" TargetType="Button">
                 <Setter Property="BackgroundColor"
                         Value="{AppThemeBinding Light={StaticResource ColorAlertAccentLight},
                                                 Dark={StaticResource ColorAlertAccentDark}}" />
