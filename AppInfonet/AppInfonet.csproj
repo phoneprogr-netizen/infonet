@@ -27,6 +27,8 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\icon-profilo.png" />
+	  <None Remove="Resources\Images\iconprofilo.png" />
+	  <None Remove="Resources\Images\Immagine1.png" />
 	  <None Remove="Resources\Images\logo.png" />
 	  <None Remove="Resources\Images\mappa.svg" />
 	</ItemGroup>
@@ -38,6 +40,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiImage Include="Resources\Images\iconprofilo.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
 	  <MauiImage Include="Resources\Images\logo.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </MauiImage>
@@ -61,6 +66,11 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
 		<PackageReference Include="ZXing.Net.Maui" Version="0.4.0" />
 		<PackageReference Include="ZXing.Net.Maui.Controls" Version="0.4.0" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Page Include="Resources\Images\Immagine1.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Page>
 	</ItemGroup>
 	<ItemGroup>
 	  <Compile Update="Pages\DashboardPage.xaml.cs">
@@ -124,9 +134,6 @@
 	<ItemGroup>
 	  <None Update="Resources\AppIcon\appiconfg.svg">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Resources\Images\Immagine1.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>
 	
