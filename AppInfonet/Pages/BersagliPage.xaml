@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppInfonet.Pages.BersagliPage"
              x:Name="BersagliPageRoot"
-             Title="Bersagli">
+             Title="Bersagli"
+             BackgroundColor="#F1F4F9">
 
     <Grid Padding="16" RowDefinitions="Auto,Auto,*" RowSpacing="12">
 
@@ -43,19 +44,20 @@
                     <Frame Margin="0,0,0,10"
                            Padding="12"
                            CornerRadius="10"
-                           HasShadow="True">
+                           HasShadow="True"
+                           BackgroundColor="White">
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnItemTapped"
                               CommandParameter="{Binding Id}" />
                         </Frame.GestureRecognizers>
                         <VerticalStackLayout Spacing="4">
-                            <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="16"/>
+                            <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="16" TextColor="Black"/>
                             <Label Text="{Binding Description}"
                                    FontSize="13"
-                                   TextColor="{AppThemeBinding Light={StaticResource ColorTextSecondaryLight}, Dark={StaticResource ColorTextSecondaryDark}}"/>
+                                   TextColor="Black"/>
                             <Label FontSize="12"
                                    Text="{Binding Devices.Count, StringFormat='Dispositivi: {0}'}"
-                                   TextColor="{AppThemeBinding Light={StaticResource ColorTextSecondaryLight}, Dark={StaticResource ColorTextSecondaryDark}}"/>
+                                   TextColor="Black"/>
                         </VerticalStackLayout>
                     </Frame>
                 </DataTemplate>
