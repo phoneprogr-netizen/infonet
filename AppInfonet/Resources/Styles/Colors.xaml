@@ -2,7 +2,8 @@
 <?xaml-comp compile="true" ?>
 <ResourceDictionary 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:maui="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls">
 
     <!-- Note: For Android please see also Platforms\Android\Resources\values\colors.xml -->
 
@@ -48,16 +49,16 @@
     <SolidColorBrush x:Key="Gray900Brush" Color="{StaticResource Gray900}"/>
     <SolidColorBrush x:Key="Gray950Brush" Color="{StaticResource Gray950}"/>
 
-    <OnAppTheme x:Key="PageBackgroundColor" x:TypeArguments="Color"
+    <maui:OnAppTheme x:Key="PageBackgroundColor" x:TypeArguments="Color"
                 Light="{StaticResource BrandYellow}"
                 Dark="{StaticResource BrandBrownDark}" />
-    <OnAppTheme x:Key="CardBackgroundColor" x:TypeArguments="Color"
+    <maui:OnAppTheme x:Key="CardBackgroundColor" x:TypeArguments="Color"
                 Light="{StaticResource BrandWhite}"
                 Dark="#5A3A30" />
-    <OnAppTheme x:Key="PrimaryTextColor" x:TypeArguments="Color"
+    <maui:OnAppTheme x:Key="PrimaryTextColor" x:TypeArguments="Color"
                 Light="{StaticResource BrandBrownDark}"
                 Dark="{StaticResource BrandWhite}" />
-    <OnAppTheme x:Key="AccentSurfaceColor" x:TypeArguments="Color"
+    <maui:OnAppTheme x:Key="AccentSurfaceColor" x:TypeArguments="Color"
                 Light="{StaticResource BrandYellowDark}"
                 Dark="{StaticResource BrandYellowDark}" />
 </ResourceDictionary>
