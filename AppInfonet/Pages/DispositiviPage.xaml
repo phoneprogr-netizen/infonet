@@ -15,68 +15,79 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <Grid RowDefinitions="*"
+        <Grid RowDefinitions="Auto,*"
               Padding="16"
-              BackgroundColor="#F1F4F9">
+              BackgroundColor="#F1F4F9"
+              RowSpacing="12">
+
+            <Button
+                Grid.Row="0"
+                Text="Nuovo dispositivo"
+                Clicked="OnNewDeviceButtonClicked"
+                HorizontalOptions="Fill"
+                BackgroundColor="#EFB339"
+                TextColor="White"
+                CornerRadius="10"
+                FontAttributes="Bold" />
 
             <!-- Lista dispositivi -->
             <CollectionView
-    x:Name="DevicesCollectionView"
-    Grid.Row="0"
-    ItemsSource="{Binding Devices}"
-    SelectionMode="None"
-    BackgroundColor="#F1F4F9">
+                x:Name="DevicesCollectionView"
+                Grid.Row="1"
+                ItemsSource="{Binding Devices}"
+                SelectionMode="None"
+                BackgroundColor="#F1F4F9">
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame Margin="0,6"
-                   Padding="12"
-                   CornerRadius="12"
-                   HasShadow="True"
-                   BackgroundColor="White"
-                   BorderColor="Black">
+                               Padding="12"
+                               CornerRadius="12"
+                               HasShadow="True"
+                               BackgroundColor="White"
+                               BorderColor="Black">
 
                             <!-- 👇 GESTURE TAP SULL’INTERO FRAME -->
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer
-                        Tapped="OnDeviceTapped" />
+                                    Tapped="OnDeviceTapped" />
                             </Frame.GestureRecognizers>
 
                             <VerticalStackLayout Spacing="4">
 
                                 <!-- Nome dispositivo / mezzo -->
                                 <Label Text="{Binding DisplayName}"
-                           FontAttributes="Bold"
-                           FontSize="Medium"
-                           TextColor="#EFB339" />
+                                       FontAttributes="Bold"
+                                       FontSize="Medium"
+                                       TextColor="#EFB339" />
 
                                 <!-- Data/ora ultimo fix -->
                                 <Label Text="{Binding LastFixDisplay}"
-                           FontSize="Small"
-                           TextColor="Black" />
+                                       FontSize="Small"
+                                       TextColor="Black" />
 
                                 <!-- Codice periferica -->
                                 <Label Text="{Binding COD_PERIF}"
-                           FontSize="Small"
-                           TextColor="Black" />
+                                       FontSize="Small"
+                                       TextColor="Black" />
 
                                 <!-- Indirizzo -->
                                 <Label Text="{Binding FullAddress}"
-                           FontSize="Small"
-                           TextColor="Black"
-                           LineBreakMode="TailTruncation" />
+                                       FontSize="Small"
+                                       TextColor="Black"
+                                       LineBreakMode="TailTruncation" />
 
                                 <!-- Riga con quadro, velocità, batteria -->
                                 <HorizontalStackLayout Margin="0,8,0,0" Spacing="16">
                                     <Label Text="{Binding QuadroDisplay}"
-                               FontSize="Small"
-                               TextColor="Black" />
+                                           FontSize="Small"
+                                           TextColor="Black" />
                                     <Label Text="{Binding SpeedDisplay}"
-                               FontSize="Small"
-                               TextColor="Black" />
+                                           FontSize="Small"
+                                           TextColor="Black" />
                                     <Label Text="{Binding BatteryDisplay}"
-                               FontSize="Small"
-                               TextColor="Black" />
+                                           FontSize="Small"
+                                           TextColor="Black" />
                                 </HorizontalStackLayout>
 
                             </VerticalStackLayout>

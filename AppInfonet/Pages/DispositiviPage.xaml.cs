@@ -69,6 +69,12 @@ namespace AppInfonet.Pages
         }
       
 
+
+        private async void OnNewDeviceButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new NuovoDispositivoPage());
+        }
+
         private async void OnDeviceTapped(object sender, TappedEventArgs e)
         {
             // sender è il Frame, il suo BindingContext è il DashboardDeviceItem
