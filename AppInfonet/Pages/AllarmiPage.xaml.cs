@@ -10,6 +10,21 @@ public partial class AllarmiPage : ContentPage
     private readonly SessionStore _sessionStore;
 
     public ObservableCollection<AlarmEvent> Allarmi { get; } = new();
+    private bool _isLoading;
+    private bool _isBusyLoadingAllarmi;
+
+    public bool IsLoading
+    {
+        get => _isLoading;
+        private set
+        {
+            if (_isLoading == value)
+                return;
+
+            _isLoading = value;
+            OnPropertyChanged();
+        }
+    }
 
     public AllarmiPage(AuthApi authApi, SessionStore sessionStore)
     {
@@ -27,9 +42,40 @@ public partial class AllarmiPage : ContentPage
 
     private async Task LoadAllarmiAsync()
     {
+        if (_isBusyLoadingAllarmi)
+            return;
+
+        _isBusyLoadingAllarmi = true;
+        IsLoading = true;
+
         try
         {
-            var items = await _authApi.GetAllarmiAsync();
+            List<AlarmEvent> items = new();
+            Exception? lastException = null;
+
+            for (var attempt = 1; attempt <= 3; attempt++)
+            {
+                try
+                {
+                    items = await _authApi.GetAllarmiAsync();
+                    lastException = null;
+                    break;
+                }
+                catch (InvalidOperationException ex) when (attempt < 3)
+                {
+                    lastException = ex;
+                    await Task.Delay(300);
+                }
+                catch (Exception ex)
+                {
+                    lastException = ex;
+                    break;
+                }
+            }
+
+            if (lastException is not null)
+                throw lastException;
+
             Allarmi.Clear();
 
             foreach (var item in items)
@@ -38,6 +84,11 @@ public partial class AllarmiPage : ContentPage
         catch
         {
             await DisplayAlert("Errore", "Impossibile caricare gli allarmi.", "OK");
+        }
+        finally
+        {
+            IsLoading = false;
+            _isBusyLoadingAllarmi = false;
         }
     }
 

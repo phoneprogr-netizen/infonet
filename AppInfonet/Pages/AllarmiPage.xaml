@@ -13,52 +13,69 @@
             HorizontalOptions="Start"
             Clicked="OnStoricoClicked" />
 
-        <CollectionView
-            Grid.Row="1"
-            Margin="0,12,0,0"
-            ItemsSource="{Binding Allarmi}"
-            SelectionMode="None">
+        <Grid Grid.Row="1" Margin="0,12,0,0">
+            <CollectionView
+                ItemsSource="{Binding Allarmi}"
+                SelectionMode="None">
 
-            <CollectionView.EmptyView>
-                <Label Text="Nessun allarme disponibile"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center" />
-            </CollectionView.EmptyView>
+                <CollectionView.EmptyView>
+                    <Label Text="Nessun allarme disponibile"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+                </CollectionView.EmptyView>
 
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Frame Margin="0,6" Padding="12" CornerRadius="12" HasShadow="True">
-                        <VerticalStackLayout Spacing="8">
-                            <Label Text="{Binding MessaggioDisplay}" FontAttributes="Bold" FontSize="16" />
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Margin="0,6" Padding="12" CornerRadius="12" HasShadow="True">
+                            <VerticalStackLayout Spacing="8">
+                                <Label Text="{Binding MessaggioDisplay}" FontAttributes="Bold" FontSize="16" />
 
-                            <Grid ColumnDefinitions="*,Auto,Auto" ColumnSpacing="12">
-                                <Label Grid.Column="0" Text="{Binding DataOraDisplay}" FontSize="13" />
-                                <Label Grid.Column="1" Text="Stato" FontSize="13" />
-                                <Label Grid.Column="2" Text="{Binding StatoDisplay}" FontSize="13" FontAttributes="Bold" />
-                            </Grid>
+                                <Grid ColumnDefinitions="*,Auto,Auto" ColumnSpacing="12">
+                                    <Label Grid.Column="0" Text="{Binding DataOraDisplay}" FontSize="13" />
+                                    <Label Grid.Column="1" Text="Stato" FontSize="13" />
+                                    <Label Grid.Column="2" Text="{Binding StatoDisplay}" FontSize="13" FontAttributes="Bold" />
+                                </Grid>
 
-                            <Button Text="Apri su mappa"
-                                    Clicked="OnApriMappaClicked"
-                                    CommandParameter="{Binding IdTestataAllarme}" />
-
-                            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
-                                <Button Grid.Column="0"
-                                        Text="✕"
-                                        Clicked="OnCloseEventClicked"
+                                <Button Text="Apri su mappa"
+                                        Clicked="OnApriMappaClicked"
                                         CommandParameter="{Binding IdTestataAllarme}" />
-                                <Button Grid.Column="1"
-                                        Text="🔕"
-                                        Clicked="OnSnoozeEventClicked"
-                                        CommandParameter="{Binding IdTestataAllarme}" />
-                                <Button Grid.Column="2"
-                                        Text="🎧"
-                                        Clicked="OnSendToOperationCenterClicked"
-                                        CommandParameter="{Binding IdTestataAllarme}" />
-                            </Grid>
-                        </VerticalStackLayout>
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+
+                                <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
+                                    <Button Grid.Column="0"
+                                            Text="✕"
+                                            Clicked="OnCloseEventClicked"
+                                            CommandParameter="{Binding IdTestataAllarme}" />
+                                    <Button Grid.Column="1"
+                                            Text="🔕"
+                                            Clicked="OnSnoozeEventClicked"
+                                            CommandParameter="{Binding IdTestataAllarme}" />
+                                    <Button Grid.Column="2"
+                                            Text="🎧"
+                                            Clicked="OnSendToOperationCenterClicked"
+                                            CommandParameter="{Binding IdTestataAllarme}" />
+                                </Grid>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Border
+                StrokeThickness="0"
+                BackgroundColor="#80FFFFFF"
+                IsVisible="{Binding IsLoading}">
+                <VerticalStackLayout
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Spacing="8">
+                    <ActivityIndicator
+                        IsRunning="{Binding IsLoading}"
+                        IsVisible="{Binding IsLoading}" />
+                    <Label Text="Caricamento allarmi in corso..."
+                           FontSize="14"
+                           HorizontalTextAlignment="Center" />
+                </VerticalStackLayout>
+            </Border>
+        </Grid>
     </Grid>
 </ContentPage>
