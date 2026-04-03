@@ -9,15 +9,30 @@ namespace AppInfonet.Pages
     {
         private readonly DashboardDeviceItem _device;
 
+        public string PlateTitle =>
+            !string.IsNullOrWhiteSpace(_device.Plate) ? _device.Plate! : _device.COD_PERIF;
+
+        public string DeviceNameTitle =>
+            !string.IsNullOrWhiteSpace(_device.DeviceName) ? _device.DeviceName! : "Dispositivo";
+
+        public string FullAddressLabel =>
+            !string.IsNullOrWhiteSpace(_device.FullAddress) ? _device.FullAddress! : "Indirizzo non disponibile";
+
+        public string QuadroValue => _device.Quadro ? "ON" : "OFF";
+
+        public string SpeedValue => $"{_device.SpeedKmph:0} km/h";
+
+        public string BatteryValue => $"{_device.Batteria:0.0} V";
+
         public DispositivoDetPage(DashboardDeviceItem device)
         {
             InitializeComponent();
 
             _device = device;
 
-            BindingContext = _device;
+            BindingContext = this;
 
-            Title = _device.DisplayName;
+            Title = PlateTitle;
 
             LoadMap();
         }
@@ -30,7 +45,6 @@ namespace AppInfonet.Pages
             string lat = _device.Latitude.ToString(CultureInfo.InvariantCulture);
             string lon = _device.Longitude.ToString(CultureInfo.InvariantCulture);
 
-            // HTML con Leaflet + layer Stradale / Satellite
             string html = $@"
 <!DOCTYPE html>
 <html>
@@ -55,13 +69,12 @@ namespace AppInfonet.Pages
     <script>
         var streets = L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
             maxZoom: 19,
-            attribution: '© OpenStreetMap'
+            attribution: 'Â© OpenStreetMap'
         }});
 
-        // Satellite (Esri World Imagery)
         var satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{{z}}/{{y}}/{{x}}', {{
             maxZoom: 19,
-            attribution: 'Tiles © Esri & contributors'
+            attribution: 'Tiles Â© Esri & contributors'
         }});
 
         var map = L.map('map', {{
@@ -93,7 +106,7 @@ namespace AppInfonet.Pages
             if (_device.Latitude == 0 && _device.Longitude == 0)
             {
                 await DisplayAlert("Posizione non disponibile",
-                    "Per questo dispositivo non è presente una posizione valida.",
+                    "Per questo dispositivo non Ã¨ presente una posizione valida.",
                     "OK");
                 return;
             }
@@ -106,21 +119,28 @@ namespace AppInfonet.Pages
 
             if (DeviceInfo.Platform == DevicePlatform.iOS)
             {
-                // Apple Maps
                 uri = new Uri($"http://maps.apple.com/?ll={lat},{lon}&q={label}");
             }
             else if (DeviceInfo.Platform == DevicePlatform.Android)
             {
-                // Google Maps (app) se disponibile
                 uri = new Uri($"geo:{lat},{lon}?q={lat},{lon}({label})");
             }
             else
             {
-                // Fallback: Google Maps nel browser
                 uri = new Uri($"https://www.google.com/maps/search/?api=1&query={lat},{lon}");
             }
 
             await Launcher.OpenAsync(uri);
+        }
+
+        private async void OnIngressiClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DispositivoIngressiPage(_device));
+        }
+
+        private async void OnUsciteClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DispositivoUscitePage(_device));
         }
     }
 }

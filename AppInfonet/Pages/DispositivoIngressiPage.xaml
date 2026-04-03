@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppInfonet.Pages.DispositivoIngressiPage"
+             Title="Dettaglio ingressi">
+    <VerticalStackLayout Padding="16" Spacing="12">
+        <Label Text="Ingressi"
+               FontSize="22"
+               FontAttributes="Bold" />
+
+        <CollectionView ItemsSource="{Binding Inputs}">
+            <CollectionView.EmptyView>
+                <Label Text="Nessun ingresso disponibile."
+                       FontSize="14" />
+            </CollectionView.EmptyView>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="12"
+                           CornerRadius="10"
+                           BorderColor="{AppThemeBinding Light=#D1D5DB, Dark=#374151}">
+                        <Grid ColumnDefinitions="*,Auto"
+                              ColumnSpacing="8">
+                            <VerticalStackLayout Grid.Column="0" Spacing="2">
+                                <Label Text="{Binding Description}"
+                                       FontAttributes="Bold" />
+                                <Label Text="{Binding Value}" FontSize="12" />
+                            </VerticalStackLayout>
+                            <Label Grid.Column="1"
+                                   Text="{Binding Index, StringFormat='#{0}'}"
+                                   VerticalTextAlignment="Center"
+                                   FontAttributes="Bold" />
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

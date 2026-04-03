@@ -5,43 +5,108 @@
     x:Class="AppInfonet.Pages.DispositivoDetPage"
     Title="Dettaglio dispositivo">
 
-    <Grid RowDefinitions="Auto,*,Auto,Auto"
-          Padding="16">
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="14">
 
-        <!-- Header: nome mezzo / targa + indirizzo -->
-        <VerticalStackLayout Grid.Row="0" Spacing="2">
-            <Label Text="{Binding DisplayName}"
-                   FontSize="20"
-                   FontAttributes="Bold" />
+            <!-- Header: targa + nome dispositivo -->
+            <VerticalStackLayout Spacing="2">
+                <Label Text="{Binding PlateTitle}"
+                       FontSize="24"
+                       FontAttributes="Bold" />
+                <Label Text="{Binding DeviceNameTitle}"
+                       FontSize="14"
+                       TextColor="{AppThemeBinding Light={StaticResource ColorTextSecondaryLight}, Dark={StaticResource ColorTextSecondaryDark}}" />
+            </VerticalStackLayout>
 
-            <Label Text="{Binding FullAddress}"
-                   FontSize="12"
-                   TextColor="{AppThemeBinding Light={StaticResource ColorTextSecondaryLight}, Dark={StaticResource ColorTextSecondaryDark}}"
-                   LineBreakMode="WordWrap" />
+            <!-- Mappa -->
+            <Border StrokeThickness="1"
+                    Stroke="{AppThemeBinding Light=#D1D5DB, Dark=#374151}"
+                    StrokeShape="RoundRectangle 12"
+                    HeightRequest="300">
+                <WebView x:Name="DeviceMapWebView" />
+            </Border>
+
+            <!-- Indirizzo + bottone apri in app -->
+            <Grid ColumnDefinitions="*,Auto"
+                  ColumnSpacing="10">
+                <Label Grid.Column="0"
+                       Text="{Binding FullAddressLabel}"
+                       FontSize="13"
+                       VerticalTextAlignment="Center"
+                       LineBreakMode="WordWrap" />
+
+                <Button Grid.Column="1"
+                        Text="Apri nell'app"
+                        Padding="16,8"
+                        Clicked="OnOpenInMapsClicked" />
+            </Grid>
+
+            <!-- Quadro / Velocità / Batteria -->
+            <Grid ColumnDefinitions="*,*,*"
+                  ColumnSpacing="10">
+                <Frame Grid.Column="0"
+                       Padding="10"
+                       CornerRadius="10"
+                       BorderColor="{AppThemeBinding Light=#D1D5DB, Dark=#374151}">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Quadro"
+                               FontSize="12"
+                               TextColor="{AppThemeBinding Light={StaticResource ColorTextSecondaryLight}, Dark={StaticResource ColorTextSecondaryDark}}" />
+                        <Label Text="{Binding QuadroValue}"
+                               FontSize="18"
+                               FontAttributes="Bold" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Grid.Column="1"
+                       Padding="10"
+                       CornerRadius="10"
+                       BorderColor="{AppThemeBinding Light=#D1D5DB, Dark=#374151}">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Velocità"
+                               FontSize="12"
+                               TextColor="{AppThemeBinding Light={StaticResource ColorTextSecondaryLight}, Dark={StaticResource ColorTextSecondaryDark}}" />
+                        <Label Text="{Binding SpeedValue}"
+                               FontSize="18"
+                               FontAttributes="Bold" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Grid.Column="2"
+                       Padding="10"
+                       CornerRadius="10"
+                       BorderColor="{AppThemeBinding Light=#D1D5DB, Dark=#374151}">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Batteria"
+                               FontSize="12"
+                               TextColor="{AppThemeBinding Light={StaticResource ColorTextSecondaryLight}, Dark={StaticResource ColorTextSecondaryDark}}" />
+                        <Label Text="{Binding BatteryValue}"
+                               FontSize="18"
+                               FontAttributes="Bold" />
+                    </VerticalStackLayout>
+                </Frame>
+            </Grid>
+
+            <!-- Bottoni ingressi / uscite -->
+            <Grid ColumnDefinitions="*,*"
+                  ColumnSpacing="12">
+                <Button Grid.Column="0"
+                        Text="Dettaglio ingressi"
+                        HeightRequest="52"
+                        FontAttributes="Bold"
+                        TextColor="White"
+                        BackgroundColor="#16A34A"
+                        Clicked="OnIngressiClicked" />
+
+                <Button Grid.Column="1"
+                        Text="Dettaglio uscite"
+                        HeightRequest="52"
+                        FontAttributes="Bold"
+                        TextColor="White"
+                        BackgroundColor="#DC2626"
+                        Clicked="OnUsciteClicked" />
+            </Grid>
+
         </VerticalStackLayout>
-
-        <!-- Mappa OpenStreetMap -->
-        <WebView x:Name="DeviceMapWebView"
-                 Grid.Row="1"
-                 Margin="0,8,0,8" />
-
-        <!-- Stato sotto la mappa -->
-        <HorizontalStackLayout Grid.Row="2"
-                               Spacing="16">
-            <Label Text="{Binding QuadroDisplay}"
-                   FontSize="14" />
-            <Label Text="{Binding SpeedDisplay}"
-                   FontSize="14" />
-            <Label Text="{Binding BatteryDisplay}"
-                   FontSize="14" />
-        </HorizontalStackLayout>
-
-        <!-- Bottone Apri in Maps -->
-        <Button Grid.Row="3"
-                Margin="0,8,0,0"
-                Text="Apri in Maps"
-                HorizontalOptions="Center"
-                Clicked="OnOpenInMapsClicked" />
-
-    </Grid>
+    </ScrollView>
 </ContentPage>
