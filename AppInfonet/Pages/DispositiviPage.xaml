@@ -5,35 +5,22 @@
     x:Class="AppInfonet.Pages.DispositiviPage"
     Title="Dispositivi">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            IconImageSource="mappa.svg"
+            Order="Primary"
+            Priority="0"
+            Clicked="OnMapButtonClicked" />
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
-        <Grid RowDefinitions="Auto,*"
+        <Grid RowDefinitions="*"
               Padding="16">
-
-            <HorizontalStackLayout Grid.Row="0"
-                       VerticalOptions="Center"
-                       Spacing="8">
-
-                <Label Text="Dispositivi"
-           FontSize="24"
-           FontAttributes="Bold"
-           HorizontalOptions="StartAndExpand" />
-
-                <ImageButton
-                Source="mappa.svg"
-                WidthRequest="28"
-                HeightRequest="28"
-                Padding="6"
-                BackgroundColor="{AppThemeBinding Light={StaticResource ColorPrimaryLight}, Dark={StaticResource ColorPrimaryDark}}"
-                CornerRadius="16"
-                Clicked="OnMapButtonClicked" /> 
-
-            </HorizontalStackLayout>
 
             <!-- Lista dispositivi -->
             <CollectionView
     x:Name="DevicesCollectionView"
-    Grid.Row="1"
-    Margin="0,12,0,0"
+    Grid.Row="0"
     ItemsSource="{Binding Devices}"
     SelectionMode="None">
 
