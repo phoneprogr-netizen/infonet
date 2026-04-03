@@ -6,8 +6,8 @@
         <ResourceDictionary>
 
             <!-- COLORI BASE -->
-            <Color x:Key="ColorPrimaryLight">#1D1D1B</Color>
-            <Color x:Key="ColorPrimaryDark">#F2F2F2</Color>
+            <Color x:Key="ColorPrimaryLight">#FCD100</Color>
+            <Color x:Key="ColorPrimaryDark">#FCD100</Color>
 
             <Color x:Key="ColorSecondaryLight">#ABABAA</Color>
             <Color x:Key="ColorSecondaryDark">#7A7A7A</Color>
@@ -27,8 +27,8 @@
             <Color x:Key="ColorBorderLight">#ABABAA</Color>
             <Color x:Key="ColorBorderDark">#4A4A4A</Color>
 
-            <Color x:Key="ColorOnPrimaryLight">#FFFFFF</Color>
-            <Color x:Key="ColorOnPrimaryDark">#121212</Color>
+            <Color x:Key="ColorOnPrimaryLight">#1D1D1B</Color>
+            <Color x:Key="ColorOnPrimaryDark">#1D1D1B</Color>
 
             <Color x:Key="ColorDividerLight">#D9D9D8</Color>
             <Color x:Key="ColorDividerDark">#3A3A3A</Color>
@@ -129,17 +129,27 @@
             <!-- TABBED PAGE -->
             <Style TargetType="TabbedPage">
                 <Setter Property="BarBackgroundColor"
-                        Value="{AppThemeBinding Light={StaticResource ColorSurfaceLight},
-                                                Dark={StaticResource ColorSurfaceDark}}" />
-                <Setter Property="BarTextColor"
-                        Value="{AppThemeBinding Light={StaticResource ColorTextSecondaryLight},
-                                                Dark={StaticResource ColorTextSecondaryDark}}" />
-                <Setter Property="SelectedTabColor"
                         Value="{AppThemeBinding Light={StaticResource ColorPrimaryLight},
                                                 Dark={StaticResource ColorPrimaryDark}}" />
+                <Setter Property="BarTextColor"
+                        Value="{AppThemeBinding Light={StaticResource ColorOnPrimaryLight},
+                                                Dark={StaticResource ColorOnPrimaryDark}}" />
+                <Setter Property="SelectedTabColor"
+                        Value="{AppThemeBinding Light={StaticResource ColorOnPrimaryLight},
+                                                Dark={StaticResource ColorOnPrimaryDark}}" />
                 <Setter Property="UnselectedTabColor"
                         Value="{AppThemeBinding Light={StaticResource ColorTextSecondaryLight},
                                                 Dark={StaticResource ColorTextSecondaryDark}}" />
+            </Style>
+
+            <!-- NAVIGATION PAGE (BARRA SUPERIORE) -->
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor"
+                        Value="{AppThemeBinding Light={StaticResource ColorPrimaryLight},
+                                                Dark={StaticResource ColorPrimaryDark}}" />
+                <Setter Property="BarTextColor"
+                        Value="{AppThemeBinding Light={StaticResource ColorOnPrimaryLight},
+                                                Dark={StaticResource ColorOnPrimaryDark}}" />
             </Style>
 
             <Style TargetType="Editor">
