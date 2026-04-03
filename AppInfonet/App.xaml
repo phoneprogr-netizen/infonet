@@ -6,8 +6,8 @@
         <ResourceDictionary>
 
             <!-- COLORI BASE -->
-            <Color x:Key="ColorPrimaryLight">#FCD100</Color>
-            <Color x:Key="ColorPrimaryDark">#FCD100</Color>
+            <Color x:Key="ColorPrimaryLight">#EFB339</Color>
+            <Color x:Key="ColorPrimaryDark">#EFB339</Color>
 
             <Color x:Key="ColorSecondaryLight">#ABABAA</Color>
             <Color x:Key="ColorSecondaryDark">#7A7A7A</Color>
