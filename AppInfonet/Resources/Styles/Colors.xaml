@@ -48,16 +48,16 @@
     <SolidColorBrush x:Key="Gray900Brush" Color="{StaticResource Gray900}"/>
     <SolidColorBrush x:Key="Gray950Brush" Color="{StaticResource Gray950}"/>
 
-    <OnAppTheme x:Key="PageBackgroundColor" x:TypeArguments="Color"
-                Light="{StaticResource BrandYellow}"
-                Dark="{StaticResource BrandBrownDark}" />
-    <OnAppTheme x:Key="CardBackgroundColor" x:TypeArguments="Color"
-                Light="{StaticResource BrandWhite}"
-                Dark="#5A3A30" />
-    <OnAppTheme x:Key="PrimaryTextColor" x:TypeArguments="Color"
-                Light="{StaticResource BrandBrownDark}"
-                Dark="{StaticResource BrandWhite}" />
-    <OnAppTheme x:Key="AccentSurfaceColor" x:TypeArguments="Color"
-                Light="{StaticResource BrandYellowDark}"
-                Dark="{StaticResource BrandYellowDark}" />
+    <AppThemeColor x:Key="PageBackgroundColor"
+                   Light="{StaticResource BrandYellow}"
+                   Dark="{StaticResource BrandBrownDark}" />
+    <AppThemeColor x:Key="CardBackgroundColor"
+                   Light="{StaticResource BrandWhite}"
+                   Dark="#5A3A30" />
+    <AppThemeColor x:Key="PrimaryTextColor"
+                   Light="{StaticResource BrandBrownDark}"
+                   Dark="{StaticResource BrandWhite}" />
+    <AppThemeColor x:Key="AccentSurfaceColor"
+                   Light="{StaticResource BrandYellowDark}"
+                   Dark="{StaticResource BrandYellowDark}" />
 </ResourceDictionary>
