@@ -2,53 +2,39 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="AppInfonet.Pages.DashboardPage"
-    BackgroundColor="{AppThemeBinding Light={StaticResource ColorSurfaceLight}, Dark={StaticResource ColorSurfaceDark}}">
+    BackgroundColor="#F1F4F9">
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="25">
 
-            <!-- HEADER -->
-            <Grid ColumnDefinitions="*,Auto">
+            <!-- TITOLO -->
+            <Label Text="Dashboard"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="#111111"/>
 
-                <VerticalStackLayout>
-                    <Label Text="Dashboard"
-                           FontSize="28"
-                           FontAttributes="Bold"
-                           TextColor="{AppThemeBinding Light={StaticResource ColorTextPrimaryLight}, Dark={StaticResource ColorTextPrimaryDark}}"/>
-
-                    <!--<Label Text="Home"
-                           FontSize="14"
-                           TextColor="Gray"/>-->
-                </VerticalStackLayout>
-
-                <ImageButton Source="iconprofilo.png"
-                             HeightRequest="40"
-                             WidthRequest="40"
-                             BackgroundColor="Transparent"
-                             Clicked="OnProfileClicked"/>
-            </Grid>
-
-            <!-- BENVENUTO + BOTTONE PROFILO -->
+            <!-- HEADER BENVENUTO -->
             <Frame Padding="15"
-       CornerRadius="15"
-       HasShadow="False"
-       BackgroundColor="{AppThemeBinding Light={StaticResource ColorSurfaceLight}, Dark={StaticResource ColorSurfaceDark}}">
+                   CornerRadius="15"
+                   HasShadow="False"
+                   BorderColor="#D9E0EA"
+                   BackgroundColor="White">
 
                 <Grid ColumnDefinitions="*,Auto"
-          VerticalOptions="Center">
+                      VerticalOptions="Center">
 
                     <!-- Testo Benvenuto -->
                     <Label Text="{Binding UserEmail, StringFormat='Ciao {0}'}"
-               FontSize="18"
-               TextColor="{AppThemeBinding Light={StaticResource ColorTextPrimaryLight}, Dark={StaticResource ColorTextPrimaryDark}}"
-               VerticalOptions="Center"/>
+                           FontSize="18"
+                           TextColor="#111111"
+                           VerticalOptions="Center"/>
 
                     <!-- Bottone Profilo -->
                     <ImageButton Grid.Column="1"
-                     Source="profile_icon.png"
-                     HeightRequest="32"
-                     WidthRequest="32"
-                     BackgroundColor="Transparent"
-                     Clicked="OnProfileClicked"/>
+                                 Source="iconprofilo.png"
+                                 HeightRequest="32"
+                                 WidthRequest="32"
+                                 BackgroundColor="Transparent"
+                                 Clicked="OnProfileClicked"/>
                 </Grid>
             </Frame>
 
@@ -57,25 +43,27 @@
 
                 <!-- DISPOSITIVI -->
                 <Frame CornerRadius="20"
-           HasShadow="True"
-           Padding="20"
-           HeightRequest="80"
-           BackgroundColor="{AppThemeBinding Light={StaticResource ColorPrimaryLight}, Dark={StaticResource ColorPrimaryDark}}">
+                       HasShadow="False"
+                       BorderColor="#D9E0EA"
+                       Padding="20"
+                       HeightRequest="80"
+                       BackgroundColor="White">
 
                     <Grid ColumnDefinitions="Auto,*"
-              VerticalOptions="Center">
+                          VerticalOptions="Center">
 
                         <Label Text="📱"
-                   FontSize="36"
-                   VerticalOptions="Center"/>
+                               FontSize="36"
+                               TextColor="#2563EB"
+                               VerticalOptions="Center"/>
 
                         <Label Grid.Column="1"
-                   Text="Dispositivi"
-                   FontSize="20"
-                   FontAttributes="Bold"
-                   TextColor="{AppThemeBinding Light={StaticResource ColorOnPrimaryLight}, Dark={StaticResource ColorOnPrimaryDark}}"
-                   VerticalOptions="Center"
-                   Margin="15,0,0,0"/>
+                               Text="Dispositivi"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="#111111"
+                               VerticalOptions="Center"
+                               Margin="15,0,0,0"/>
                     </Grid>
 
                     <Frame.GestureRecognizers>
@@ -85,25 +73,27 @@
 
                 <!-- ALLARMI -->
                 <Frame CornerRadius="20"
-           HasShadow="True"
-           Padding="20"
-           HeightRequest="80"
-           BackgroundColor="{AppThemeBinding Light={StaticResource ColorPrimaryLight}, Dark={StaticResource ColorPrimaryDark}}">
+                       HasShadow="False"
+                       BorderColor="#D9E0EA"
+                       Padding="20"
+                       HeightRequest="80"
+                       BackgroundColor="White">
 
                     <Grid ColumnDefinitions="Auto,*"
-              VerticalOptions="Center">
+                          VerticalOptions="Center">
 
                         <Label Text="🚨"
-                   FontSize="36"
-                   VerticalOptions="Center"/>
+                               FontSize="36"
+                               TextColor="#2563EB"
+                               VerticalOptions="Center"/>
 
                         <Label Grid.Column="1"
-                   Text="Allarmi"
-                   FontSize="20"
-                   FontAttributes="Bold"
-                   TextColor="{AppThemeBinding Light={StaticResource ColorOnPrimaryLight}, Dark={StaticResource ColorOnPrimaryDark}}"
-                   VerticalOptions="Center"
-                   Margin="15,0,0,0"/>
+                               Text="Allarmi"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="#111111"
+                               VerticalOptions="Center"
+                               Margin="15,0,0,0"/>
                     </Grid>
 
                     <Frame.GestureRecognizers>
@@ -113,25 +103,27 @@
 
                 <!-- BERSAGLI -->
                 <Frame CornerRadius="20"
-           HasShadow="True"
-           Padding="20"
-           HeightRequest="80"
-           BackgroundColor="{AppThemeBinding Light={StaticResource ColorPrimaryLight}, Dark={StaticResource ColorPrimaryDark}}">
+                       HasShadow="False"
+                       BorderColor="#D9E0EA"
+                       Padding="20"
+                       HeightRequest="80"
+                       BackgroundColor="White">
 
                     <Grid ColumnDefinitions="Auto,*"
-              VerticalOptions="Center">
+                          VerticalOptions="Center">
 
                         <Label Text="📍"
-                   FontSize="36"
-                   VerticalOptions="Center"/>
+                               FontSize="36"
+                               TextColor="#2563EB"
+                               VerticalOptions="Center"/>
 
                         <Label Grid.Column="1"
-                   Text="Bersagli"
-                   FontSize="20"
-                   FontAttributes="Bold"
-                   TextColor="{AppThemeBinding Light={StaticResource ColorOnPrimaryLight}, Dark={StaticResource ColorOnPrimaryDark}}"
-                   VerticalOptions="Center"
-                   Margin="15,0,0,0"/>
+                               Text="Bersagli"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="#111111"
+                               VerticalOptions="Center"
+                               Margin="15,0,0,0"/>
                     </Grid>
 
                     <Frame.GestureRecognizers>
@@ -141,25 +133,27 @@
 
                 <!-- TRAGITTI -->
                 <Frame CornerRadius="20"
-           HasShadow="True"
-           Padding="20"
-           HeightRequest="80"
-           BackgroundColor="{AppThemeBinding Light={StaticResource ColorPrimaryLight}, Dark={StaticResource ColorPrimaryDark}}">
+                       HasShadow="False"
+                       BorderColor="#D9E0EA"
+                       Padding="20"
+                       HeightRequest="80"
+                       BackgroundColor="White">
 
                     <Grid ColumnDefinitions="Auto,*"
-              VerticalOptions="Center">
+                          VerticalOptions="Center">
 
                         <Label Text="🛣"
-                   FontSize="36"
-                   VerticalOptions="Center"/>
+                               FontSize="36"
+                               TextColor="#2563EB"
+                               VerticalOptions="Center"/>
 
                         <Label Grid.Column="1"
-                   Text="Tragitti"
-                   FontSize="20"
-                   FontAttributes="Bold"
-                   TextColor="{AppThemeBinding Light={StaticResource ColorOnPrimaryLight}, Dark={StaticResource ColorOnPrimaryDark}}"
-                   VerticalOptions="Center"
-                   Margin="15,0,0,0"/>
+                               Text="Tragitti"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="#111111"
+                               VerticalOptions="Center"
+                               Margin="15,0,0,0"/>
                     </Grid>
 
                     <Frame.GestureRecognizers>
