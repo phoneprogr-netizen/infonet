@@ -46,7 +46,7 @@
                                 </Grid>
 
                                 <Button Text="Apri su mappa"
-                                        BackgroundColor="White"
+                                        BackgroundColor="#FFEB3B"
                                         TextColor="Black"
                                         CornerRadius="20"
                                         Clicked="OnApriMappaClicked"

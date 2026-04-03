@@ -125,11 +125,27 @@ public partial class AllarmiPage : ContentPage
 
     private async void OnCloseEventClicked(object sender, EventArgs e)
     {
+        var confirmed = await ConfirmEventActionAsync(
+            sender,
+            "Chiusura allarme",
+            "Sei sicuro di voler chiudere l'allarme?");
+
+        if (!confirmed)
+            return;
+
         await ExecuteEventActionAsync(sender, _authApi.CloseEventAsync, "Chiusura allarme");
     }
 
     private async void OnSnoozeEventClicked(object sender, EventArgs e)
     {
+        var confirmed = await ConfirmEventActionAsync(
+            sender,
+            "Snooze allarme",
+            "Sei sicuro di voler posticipare (snooze) l'allarme?");
+
+        if (!confirmed)
+            return;
+
         var userId = _sessionStore.UserId ?? 0;
         await ExecuteEventActionAsync(
             sender,
@@ -139,11 +155,27 @@ public partial class AllarmiPage : ContentPage
 
     private async void OnSendToOperationCenterClicked(object sender, EventArgs e)
     {
+        var confirmed = await ConfirmEventActionAsync(
+            sender,
+            "Invio a centrale operativa",
+            "Sei sicuro di voler inviare l'allarme alla centrale operativa?");
+
+        if (!confirmed)
+            return;
+
         var userId = _sessionStore.UserId ?? 0;
         await ExecuteEventActionAsync(
             sender,
             eventId => _authApi.SendToOperationCenterAsync(eventId, userId),
             "Invio a centrale operativa");
+    }
+
+    private async Task<bool> ConfirmEventActionAsync(object sender, string title, string message)
+    {
+        if (sender is not Button { BindingContext: AlarmEvent })
+            return false;
+
+        return await DisplayAlert(title, message, "Sì", "No");
     }
 
     private async Task ExecuteEventActionAsync(
