@@ -29,6 +29,7 @@ namespace AppInfonet
 
             builder.Services.AddTransient<Pages.LoginPage>();
             builder.Services.AddTransient<ProfiloPage>();
+            builder.Services.AddTransient<ModificaProfiloPage>();
             builder.Services.AddTransient<DashboardViewModel>();
             builder.Services.AddTransient<DashboardPage>();
             builder.Services.AddTransient<BersaglioMapEditPage>();
