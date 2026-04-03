@@ -44,32 +44,28 @@
                                 Clicked="OnModificaProfiloClicked"
                                 BackgroundColor="Transparent"
                                 TextColor="#1D1D1B"
-                                HorizontalOptions="Fill"
-                                HorizontalTextAlignment="Start" />
+                                HorizontalOptions="Fill" />
                         <BoxView HeightRequest="1" Opacity="0.3" />
 
                         <Button Text="Manuale d'uso"
                                 Clicked="OnManualeClicked"
                                 BackgroundColor="Transparent"
                                 TextColor="#1D1D1B"
-                                HorizontalOptions="Fill"
-                                HorizontalTextAlignment="Start" />
+                                HorizontalOptions="Fill" />
                         <BoxView HeightRequest="1" Opacity="0.3" />
 
                         <Button Text="Termini e condizioni"
                                 Clicked="OnTerminiClicked"
                                 BackgroundColor="Transparent"
                                 TextColor="#1D1D1B"
-                                HorizontalOptions="Fill"
-                                HorizontalTextAlignment="Start" />
+                                HorizontalOptions="Fill" />
                         <BoxView HeightRequest="1" Opacity="0.3" />
 
                         <Button Text="Richiesta eliminazione profilo"
                                 Clicked="OnDeleteProfileClicked"
                                 BackgroundColor="Transparent"
                                 TextColor="#8B1E1E"
-                                HorizontalOptions="Fill"
-                                HorizontalTextAlignment="Start" />
+                                HorizontalOptions="Fill" />
                     </VerticalStackLayout>
                 </Frame>
 
