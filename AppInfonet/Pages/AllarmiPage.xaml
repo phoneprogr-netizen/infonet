@@ -11,7 +11,11 @@
         <Button
             Grid.Row="0"
             Text="Storico allarmi"
-            HorizontalOptions="Start"
+            HorizontalOptions="Fill"
+            HorizontalTextAlignment="Center"
+            BackgroundColor="White"
+            TextColor="Black"
+            CornerRadius="22"
             Clicked="OnStoricoClicked" />
 
         <Grid Grid.Row="1" Margin="0,12,0,0">
@@ -31,7 +35,7 @@
                                Padding="12"
                                CornerRadius="12"
                                HasShadow="True"
-                               BackgroundColor="{StaticResource ColorAlertAccentLight}"
+                               BackgroundColor="White"
                                BorderColor="Black">
                             <VerticalStackLayout Spacing="8">
                                 <Label Text="{Binding MessaggioDisplay}" FontAttributes="Bold" FontSize="16" TextColor="Black" />
@@ -43,21 +47,32 @@
                                 </Grid>
 
                                 <Button Text="Apri su mappa"
+                                        BackgroundColor="White"
+                                        TextColor="Black"
+                                        CornerRadius="20"
                                         Clicked="OnApriMappaClicked"
                                         CommandParameter="{Binding IdTestataAllarme}" />
 
                                 <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
                                     <Button Grid.Column="0"
                                             Text="✕"
-                                            Style="{StaticResource AlertAccentButtonStyle}"
+                                            BackgroundColor="White"
+                                            TextColor="Black"
+                                            CornerRadius="22"
                                             Clicked="OnCloseEventClicked"
                                             CommandParameter="{Binding IdTestataAllarme}" />
                                     <Button Grid.Column="1"
                                             Text="🔕"
+                                            BackgroundColor="White"
+                                            TextColor="Black"
+                                            CornerRadius="22"
                                             Clicked="OnSnoozeEventClicked"
                                             CommandParameter="{Binding IdTestataAllarme}" />
                                     <Button Grid.Column="2"
                                             Text="🎧"
+                                            BackgroundColor="White"
+                                            TextColor="Black"
+                                            CornerRadius="22"
                                             Clicked="OnSendToOperationCenterClicked"
                                             CommandParameter="{Binding IdTestataAllarme}" />
                                 </Grid>

@@ -8,7 +8,7 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem
-            IconImageSource="mappa.svg"
+            IconImageSource="mappa_white.svg"
             Order="Primary"
             Priority="0"
             Clicked="OnMapButtonClicked" />
