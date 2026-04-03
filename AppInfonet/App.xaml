@@ -4,10 +4,156 @@
              x:Class="AppInfonet.App">
     <Application.Resources>
         <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
-                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
-            </ResourceDictionary.MergedDictionaries>
+
+            <!-- COLORI BASE -->
+            <Color x:Key="ColorPrimaryLight">#1D1D1B</Color>
+            <Color x:Key="ColorPrimaryDark">#F2F2F2</Color>
+
+            <Color x:Key="ColorSecondaryLight">#ABABAA</Color>
+            <Color x:Key="ColorSecondaryDark">#7A7A7A</Color>
+
+            <Color x:Key="ColorBackgroundLight">#ECECEC</Color>
+            <Color x:Key="ColorBackgroundDark">#121212</Color>
+
+            <Color x:Key="ColorSurfaceLight">#FFFFFF</Color>
+            <Color x:Key="ColorSurfaceDark">#1E1E1E</Color>
+
+            <Color x:Key="ColorTextPrimaryLight">#1D1D1B</Color>
+            <Color x:Key="ColorTextPrimaryDark">#FFFFFF</Color>
+
+            <Color x:Key="ColorTextSecondaryLight">#5F5F5E</Color>
+            <Color x:Key="ColorTextSecondaryDark">#C8C8C8</Color>
+
+            <Color x:Key="ColorBorderLight">#ABABAA</Color>
+            <Color x:Key="ColorBorderDark">#4A4A4A</Color>
+
+            <Color x:Key="ColorOnPrimaryLight">#FFFFFF</Color>
+            <Color x:Key="ColorOnPrimaryDark">#121212</Color>
+
+            <Color x:Key="ColorDividerLight">#D9D9D8</Color>
+            <Color x:Key="ColorDividerDark">#3A3A3A</Color>
+
+            <Color x:Key="ColorErrorLight">#B3261E</Color>
+            <Color x:Key="ColorErrorDark">#FF8A80</Color>
+
+            <Color x:Key="ColorWarningBackgroundLight">#F5F5F4</Color>
+            <Color x:Key="ColorWarningBackgroundDark">#2A2A2A</Color>
+
+            <Color x:Key="ColorWarningBorderLight">#D6D6D4</Color>
+            <Color x:Key="ColorWarningBorderDark">#555555</Color>
+
+            <Color x:Key="ColorDangerLight">#8B1E1E</Color>
+            <Color x:Key="ColorDangerDark">#FF6B6B</Color>
+
+            <Color x:Key="ColorOnDangerLight">#FFFFFF</Color>
+            <Color x:Key="ColorOnDangerDark">#121212</Color>
+
+            <!-- STILE PAGINE -->
+            <Style TargetType="ContentPage">
+                <Setter Property="BackgroundColor"
+                        Value="{AppThemeBinding Light={StaticResource ColorBackgroundLight},
+                                                Dark={StaticResource ColorBackgroundDark}}" />
+            </Style>
+
+            <!-- LABEL -->
+            <Style TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="{AppThemeBinding Light={StaticResource ColorTextPrimaryLight},
+                                                Dark={StaticResource ColorTextPrimaryDark}}" />
+            </Style>
+
+            <!-- ENTRY -->
+            <Style TargetType="Entry">
+                <Setter Property="TextColor"
+                        Value="{AppThemeBinding Light={StaticResource ColorTextPrimaryLight},
+                                                Dark={StaticResource ColorTextPrimaryDark}}" />
+                <Setter Property="PlaceholderColor"
+                        Value="{AppThemeBinding Light={StaticResource ColorTextSecondaryLight},
+                                                Dark={StaticResource ColorTextSecondaryDark}}" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="ClearButtonVisibility" Value="WhileEditing" />
+            </Style>
+
+            <!-- BUTTON -->
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor"
+                        Value="{AppThemeBinding Light={StaticResource ColorPrimaryLight},
+                                                Dark={StaticResource ColorPrimaryLight}}" />
+                <Setter Property="TextColor"
+                        Value="{AppThemeBinding Light={StaticResource ColorOnPrimaryLight},
+                                                Dark={StaticResource ColorOnPrimaryLight}}" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="HeightRequest" Value="45" />
+                <Setter Property="FontAttributes" Value="Bold" />
+
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup Name="CommonStates">
+                            <VisualState Name="Normal" />
+                            <VisualState Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor"
+                                            Value="{AppThemeBinding Light={StaticResource ColorSecondaryLight},
+                                                                    Dark={StaticResource ColorSecondaryDark}}" />
+                                    <Setter Property="TextColor"
+                                            Value="{AppThemeBinding Light={StaticResource ColorOnPrimaryLight},
+                                                                    Dark={StaticResource ColorOnPrimaryLight}}" />
+                                    <Setter Property="Opacity" Value="0.7" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+
+            <!-- FRAME -->
+            <Style TargetType="Frame">
+                <Setter Property="BackgroundColor"
+                        Value="{AppThemeBinding Light={StaticResource ColorSurfaceLight},
+                                                Dark={StaticResource ColorSurfaceDark}}" />
+                <Setter Property="BorderColor"
+                        Value="{AppThemeBinding Light={StaticResource ColorBorderLight},
+                                                Dark={StaticResource ColorBorderDark}}" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="HasShadow" Value="False" />
+                <Setter Property="Padding" Value="10" />
+            </Style>
+
+            <!-- BOXVIEW -->
+            <Style TargetType="BoxView">
+                <Setter Property="Color"
+                        Value="{AppThemeBinding Light={StaticResource ColorDividerLight},
+                                                Dark={StaticResource ColorDividerDark}}" />
+            </Style>
+
+            <!-- TABBED PAGE -->
+            <Style TargetType="TabbedPage">
+                <Setter Property="BarBackgroundColor"
+                        Value="{AppThemeBinding Light={StaticResource ColorSurfaceLight},
+                                                Dark={StaticResource ColorSurfaceDark}}" />
+                <Setter Property="BarTextColor"
+                        Value="{AppThemeBinding Light={StaticResource ColorTextSecondaryLight},
+                                                Dark={StaticResource ColorTextSecondaryDark}}" />
+                <Setter Property="SelectedTabColor"
+                        Value="{AppThemeBinding Light={StaticResource ColorPrimaryLight},
+                                                Dark={StaticResource ColorPrimaryDark}}" />
+                <Setter Property="UnselectedTabColor"
+                        Value="{AppThemeBinding Light={StaticResource ColorTextSecondaryLight},
+                                                Dark={StaticResource ColorTextSecondaryDark}}" />
+            </Style>
+
+            <Style TargetType="Editor">
+                <Setter Property="TextColor"
+                Value="{AppThemeBinding Light={StaticResource ColorTextPrimaryLight},
+                                        Dark={StaticResource ColorTextPrimaryDark}}" />
+                <Setter Property="PlaceholderColor"
+                Value="{AppThemeBinding Light={StaticResource ColorTextSecondaryLight},
+                                        Dark={StaticResource ColorTextSecondaryDark}}" />
+                <Setter Property="BackgroundColor"
+                Value="{AppThemeBinding Light={StaticResource ColorSurfaceLight},
+                                        Dark={StaticResource ColorSurfaceDark}}" />
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>
