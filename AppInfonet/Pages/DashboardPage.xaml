@@ -1,8 +1,7 @@
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="AppInfonet.Pages.DashboardPage"
-    BackgroundColor="#F4F6F9">
+    x:Class="AppInfonet.Pages.DashboardPage">
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="25">
 
@@ -13,7 +12,7 @@
                     <Label Text="Dashboard"
                            FontSize="28"
                            FontAttributes="Bold"
-                           TextColor="#1E293B"/>
+                           TextColor="{DynamicResource PrimaryTextColor}"/>
 
                     <!--<Label Text="Home"
                            FontSize="14"
@@ -31,7 +30,7 @@
             <Frame Padding="15"
        CornerRadius="15"
        HasShadow="False"
-       BackgroundColor="White">
+       BackgroundColor="{DynamicResource CardBackgroundColor}">
 
                 <Grid ColumnDefinitions="*,Auto"
           VerticalOptions="Center">
@@ -39,7 +38,7 @@
                     <!-- Testo Benvenuto -->
                     <Label Text="{Binding UserEmail, StringFormat='Ciao {0}'}"
                FontSize="18"
-               TextColor="#334155"
+               TextColor="{DynamicResource PrimaryTextColor}"
                VerticalOptions="Center"/>
 
                     <!-- Bottone Profilo -->
@@ -60,7 +59,7 @@
            HasShadow="True"
            Padding="20"
            HeightRequest="80"
-           BackgroundColor="#2563EB">
+           BackgroundColor="{StaticResource BrandYellowDark}">
 
                     <Grid ColumnDefinitions="Auto,*"
               VerticalOptions="Center">
@@ -73,7 +72,7 @@
                    Text="Dispositivi"
                    FontSize="20"
                    FontAttributes="Bold"
-                   TextColor="White"
+                   TextColor="{DynamicResource PrimaryTextColor}"
                    VerticalOptions="Center"
                    Margin="15,0,0,0"/>
                     </Grid>
@@ -88,7 +87,7 @@
            HasShadow="True"
            Padding="20"
            HeightRequest="80"
-           BackgroundColor="#DC2626">
+           BackgroundColor="{StaticResource BrandYellowDark}">
 
                     <Grid ColumnDefinitions="Auto,*"
               VerticalOptions="Center">
@@ -101,7 +100,7 @@
                    Text="Allarmi"
                    FontSize="20"
                    FontAttributes="Bold"
-                   TextColor="White"
+                   TextColor="{DynamicResource PrimaryTextColor}"
                    VerticalOptions="Center"
                    Margin="15,0,0,0"/>
                     </Grid>
@@ -116,7 +115,7 @@
            HasShadow="True"
            Padding="20"
            HeightRequest="80"
-           BackgroundColor="#059669">
+           BackgroundColor="{StaticResource BrandYellowDark}">
 
                     <Grid ColumnDefinitions="Auto,*"
               VerticalOptions="Center">
@@ -129,7 +128,7 @@
                    Text="Bersagli"
                    FontSize="20"
                    FontAttributes="Bold"
-                   TextColor="White"
+                   TextColor="{DynamicResource PrimaryTextColor}"
                    VerticalOptions="Center"
                    Margin="15,0,0,0"/>
                     </Grid>
@@ -144,7 +143,7 @@
            HasShadow="True"
            Padding="20"
            HeightRequest="80"
-           BackgroundColor="#7C3AED">
+           BackgroundColor="{StaticResource BrandYellowDark}">
 
                     <Grid ColumnDefinitions="Auto,*"
               VerticalOptions="Center">
@@ -157,7 +156,7 @@
                    Text="Tragitti"
                    FontSize="20"
                    FontAttributes="Bold"
-                   TextColor="White"
+                   TextColor="{DynamicResource PrimaryTextColor}"
                    VerticalOptions="Center"
                    Margin="15,0,0,0"/>
                     </Grid>
