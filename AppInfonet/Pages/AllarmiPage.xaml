@@ -12,7 +12,6 @@
             Grid.Row="0"
             Text="Storico allarmi"
             HorizontalOptions="Fill"
-            HorizontalTextAlignment="Center"
             BackgroundColor="White"
             TextColor="Black"
             CornerRadius="22"
