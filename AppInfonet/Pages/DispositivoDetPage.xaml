@@ -87,24 +87,60 @@
                 </Frame>
             </Grid>
 
-            <!-- Bottoni ingressi / uscite -->
+            <!-- Bottoni azioni -->
             <Grid ColumnDefinitions="*,*"
                   ColumnSpacing="12">
-                <Button Grid.Column="0"
-                        Text="Dettaglio ingressi"
-                        HeightRequest="52"
-                        FontAttributes="Bold"
-                        TextColor="White"
+                <Border Grid.Column="0"
+                        StrokeThickness="0"
                         BackgroundColor="#16A34A"
-                        Clicked="OnIngressiClicked" />
+                        StrokeShape="RoundRectangle 12"
+                        Padding="12,10">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnIngressiUsciteClicked" />
+                    </Border.GestureRecognizers>
+                    <Grid ColumnDefinitions="Auto,*"
+                          ColumnSpacing="10">
+                        <Label Grid.Column="0"
+                               Text="↔"
+                               FontSize="22"
+                               VerticalTextAlignment="Center"
+                               TextColor="White" />
+                        <Label Grid.Column="1"
+                               Text="Dettaglio&#10;ingressi/uscite"
+                               FontSize="14"
+                               FontAttributes="Bold"
+                               TextColor="White"
+                               VerticalTextAlignment="Center"
+                               LineBreakMode="WordWrap"
+                               MaxLines="2" />
+                    </Grid>
+                </Border>
 
-                <Button Grid.Column="1"
-                        Text="Dettaglio uscite"
-                        HeightRequest="52"
-                        FontAttributes="Bold"
-                        TextColor="White"
+                <Border Grid.Column="1"
+                        StrokeThickness="0"
                         BackgroundColor="#DC2626"
-                        Clicked="OnUsciteClicked" />
+                        StrokeShape="RoundRectangle 12"
+                        Padding="12,10">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnStoricoAllarmiClicked" />
+                    </Border.GestureRecognizers>
+                    <Grid ColumnDefinitions="Auto,*"
+                          ColumnSpacing="10">
+                        <Label Grid.Column="0"
+                               Text="🚨"
+                               FontSize="20"
+                               VerticalTextAlignment="Center"
+                               TextColor="White" />
+                        <Label Grid.Column="1"
+                               Text="Storico&#10;allarmi"
+                               FontSize="14"
+                               FontAttributes="Bold"
+                               TextColor="White"
+                               VerticalTextAlignment="Center"
+                               LineBreakMode="WordWrap"
+                               MaxLines="2" />
+                    </Grid>
+                </Border>
             </Grid>
 
         </VerticalStackLayout>
