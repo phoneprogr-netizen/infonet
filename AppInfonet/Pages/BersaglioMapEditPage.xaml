@@ -6,7 +6,9 @@
 
     <Grid RowDefinitions="*,Auto" Padding="0">
 
-        <Grid Grid.Row="0" Padding="12" BackgroundColor="{DynamicResource CardBackgroundColor}">
+        <Grid Grid.Row="0"
+              Padding="12"
+              BackgroundColor="{AppThemeBinding Light={StaticResource ColorSurfaceLight}, Dark={StaticResource ColorSurfaceDark}}">
             <Label x:Name="TargetNameLabel"
                    Text="..."
                    FontSize="16"
@@ -18,7 +20,7 @@
                  Grid.Row="0"
                  Navigating="OnWebViewNavigating" />
 
-        <Grid Grid.Row="2" ColumnDefinitions="*,*" Padding="12" ColumnSpacing="10">
+        <Grid Grid.Row="1" ColumnDefinitions="*,*" Padding="12" ColumnSpacing="10">
             <Button Text="Annulla" Clicked="OnCancelClicked" />
             <Button Grid.Column="1" Text="Salva" Clicked="OnSaveClicked" />
         </Grid>
