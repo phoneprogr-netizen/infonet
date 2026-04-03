@@ -12,7 +12,7 @@
                     <Label Text="Dashboard"
                            FontSize="28"
                            FontAttributes="Bold"
-                           TextColor="{DynamicResource PrimaryTextColor}"/>
+                           TextColor="{AppThemeBinding Light={StaticResource ColorTextPrimaryLight}, Dark={StaticResource ColorTextPrimaryDark}}"/>
 
                     <!--<Label Text="Home"
                            FontSize="14"
@@ -30,7 +30,7 @@
             <Frame Padding="15"
        CornerRadius="15"
        HasShadow="False"
-       BackgroundColor="{DynamicResource CardBackgroundColor}">
+       BackgroundColor="{AppThemeBinding Light={StaticResource ColorSurfaceLight}, Dark={StaticResource ColorSurfaceDark}}">
 
                 <Grid ColumnDefinitions="*,Auto"
           VerticalOptions="Center">
@@ -38,7 +38,7 @@
                     <!-- Testo Benvenuto -->
                     <Label Text="{Binding UserEmail, StringFormat='Ciao {0}'}"
                FontSize="18"
-               TextColor="{DynamicResource PrimaryTextColor}"
+               TextColor="{AppThemeBinding Light={StaticResource ColorTextPrimaryLight}, Dark={StaticResource ColorTextPrimaryDark}}"
                VerticalOptions="Center"/>
 
                     <!-- Bottone Profilo -->
@@ -59,7 +59,7 @@
            HasShadow="True"
            Padding="20"
            HeightRequest="80"
-           BackgroundColor="{StaticResource BrandYellowDark}">
+           BackgroundColor="{AppThemeBinding Light={StaticResource ColorPrimaryLight}, Dark={StaticResource ColorPrimaryDark}}">
 
                     <Grid ColumnDefinitions="Auto,*"
               VerticalOptions="Center">
@@ -72,7 +72,7 @@
                    Text="Dispositivi"
                    FontSize="20"
                    FontAttributes="Bold"
-                   TextColor="{DynamicResource PrimaryTextColor}"
+                   TextColor="{AppThemeBinding Light={StaticResource ColorOnPrimaryLight}, Dark={StaticResource ColorOnPrimaryDark}}"
                    VerticalOptions="Center"
                    Margin="15,0,0,0"/>
                     </Grid>
@@ -87,7 +87,7 @@
            HasShadow="True"
            Padding="20"
            HeightRequest="80"
-           BackgroundColor="{StaticResource BrandYellowDark}">
+           BackgroundColor="{AppThemeBinding Light={StaticResource ColorPrimaryLight}, Dark={StaticResource ColorPrimaryDark}}">
 
                     <Grid ColumnDefinitions="Auto,*"
               VerticalOptions="Center">
@@ -100,7 +100,7 @@
                    Text="Allarmi"
                    FontSize="20"
                    FontAttributes="Bold"
-                   TextColor="{DynamicResource PrimaryTextColor}"
+                   TextColor="{AppThemeBinding Light={StaticResource ColorOnPrimaryLight}, Dark={StaticResource ColorOnPrimaryDark}}"
                    VerticalOptions="Center"
                    Margin="15,0,0,0"/>
                     </Grid>
@@ -115,7 +115,7 @@
            HasShadow="True"
            Padding="20"
            HeightRequest="80"
-           BackgroundColor="{StaticResource BrandYellowDark}">
+           BackgroundColor="{AppThemeBinding Light={StaticResource ColorPrimaryLight}, Dark={StaticResource ColorPrimaryDark}}">
 
                     <Grid ColumnDefinitions="Auto,*"
               VerticalOptions="Center">
@@ -128,7 +128,7 @@
                    Text="Bersagli"
                    FontSize="20"
                    FontAttributes="Bold"
-                   TextColor="{DynamicResource PrimaryTextColor}"
+                   TextColor="{AppThemeBinding Light={StaticResource ColorOnPrimaryLight}, Dark={StaticResource ColorOnPrimaryDark}}"
                    VerticalOptions="Center"
                    Margin="15,0,0,0"/>
                     </Grid>
@@ -143,7 +143,7 @@
            HasShadow="True"
            Padding="20"
            HeightRequest="80"
-           BackgroundColor="{StaticResource BrandYellowDark}">
+           BackgroundColor="{AppThemeBinding Light={StaticResource ColorPrimaryLight}, Dark={StaticResource ColorPrimaryDark}}">
 
                     <Grid ColumnDefinitions="Auto,*"
               VerticalOptions="Center">
@@ -156,7 +156,7 @@
                    Text="Tragitti"
                    FontSize="20"
                    FontAttributes="Bold"
-                   TextColor="{DynamicResource PrimaryTextColor}"
+                   TextColor="{AppThemeBinding Light={StaticResource ColorOnPrimaryLight}, Dark={StaticResource ColorOnPrimaryDark}}"
                    VerticalOptions="Center"
                    Margin="15,0,0,0"/>
                     </Grid>

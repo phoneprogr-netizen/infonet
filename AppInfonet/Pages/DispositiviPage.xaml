@@ -23,7 +23,7 @@
                 WidthRequest="28"
                 HeightRequest="28"
                 Padding="6"
-                BackgroundColor="{StaticResource BrandYellowDark}"
+                BackgroundColor="{AppThemeBinding Light={StaticResource ColorPrimaryLight}, Dark={StaticResource ColorPrimaryDark}}"
                 CornerRadius="16"
                 Clicked="OnMapButtonClicked" /> 
 
@@ -60,7 +60,7 @@
                                 <!-- Data/ora ultimo fix -->
                                 <Label Text="{Binding LastFixDisplay}"
                            FontSize="Small"
-                           TextColor="Gray" />
+                           TextColor="{AppThemeBinding Light={StaticResource ColorTextSecondaryLight}, Dark={StaticResource ColorTextSecondaryDark}}" />
 
                                 <!-- Codice periferica -->
                                 <Label Text="{Binding COD_PERIF}"

@@ -50,10 +50,12 @@
                         </Frame.GestureRecognizers>
                         <VerticalStackLayout Spacing="4">
                             <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="16"/>
-                            <Label Text="{Binding Description}" FontSize="13" TextColor="Gray"/>
+                            <Label Text="{Binding Description}"
+                                   FontSize="13"
+                                   TextColor="{AppThemeBinding Light={StaticResource ColorTextSecondaryLight}, Dark={StaticResource ColorTextSecondaryDark}}"/>
                             <Label FontSize="12"
                                    Text="{Binding Devices.Count, StringFormat='Dispositivi: {0}'}"
-                                   TextColor="Gray"/>
+                                   TextColor="{AppThemeBinding Light={StaticResource ColorTextSecondaryLight}, Dark={StaticResource ColorTextSecondaryDark}}"/>
                         </VerticalStackLayout>
                     </Frame>
                 </DataTemplate>

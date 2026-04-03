@@ -30,7 +30,10 @@
 
                             <Grid ColumnDefinitions="*,Auto">
                                 <Label Text="{Binding Plate}" FontAttributes="Bold" FontSize="15"/>
-                                <Label Grid.Column="1" Text="{Binding CodPerif}" FontSize="11" TextColor="Gray" />
+                                <Label Grid.Column="1"
+                                       Text="{Binding CodPerif}"
+                                       FontSize="11"
+                                       TextColor="{AppThemeBinding Light={StaticResource ColorTextSecondaryLight}, Dark={StaticResource ColorTextSecondaryDark}}" />
                             </Grid>
 
                             <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="6">
@@ -67,8 +70,6 @@
                 Margin="0,12,0,0"
                 FontSize="18"
                 CornerRadius="12"
-                BackgroundColor="{DynamicResource Primary}"
-                TextColor="White"
                 Clicked="OnSaveClicked"/>
     </Grid>
 </ContentPage>
