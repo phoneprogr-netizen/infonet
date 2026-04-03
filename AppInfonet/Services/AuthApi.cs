@@ -144,6 +144,73 @@ namespace AppInfonet.Services
             return items ?? new List<Bersaglio>();
         }
 
+        public async Task<List<AlarmEvent>> GetAllarmiAsync()
+        {
+            var mail = _sessionStore.Mail;
+            var password = _sessionStore.LoginPassword;
+
+            if (string.IsNullOrWhiteSpace(mail) || string.IsNullOrWhiteSpace(password))
+                throw new InvalidOperationException("Credenziali non presenti in sessione.");
+
+            var base64 = Convert.ToBase64String(Encoding.UTF8.GetBytes($"{mail}:{password}"));
+
+            using var request = new HttpRequestMessage(HttpMethod.Get, "api/Event/indexv2");
+            request.Headers.Authorization = new AuthenticationHeaderValue("Basic", base64);
+
+            using var response = await _httpClient.SendAsync(request);
+            if (!response.IsSuccessStatusCode)
+                return new List<AlarmEvent>();
+
+            await using var stream = await response.Content.ReadAsStreamAsync();
+            var items = await JsonSerializer.DeserializeAsync<List<AlarmEvent>>(
+                stream,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+            return items ?? new List<AlarmEvent>();
+        }
+
+        public async Task<(bool Success, string Message)> CloseEventAsync(int eventId)
+        {
+            return await ExecuteAlarmActionAsync($"api/Event/CloseEvent2?eventID={eventId}");
+        }
+
+        public async Task<(bool Success, string Message)> SnoozeEventAsync(int eventId, int idUtente)
+        {
+            return await ExecuteAlarmActionAsync($"api/Event/SnoozeEventV2?eventID={eventId}&idutente={idUtente}");
+        }
+
+        public async Task<(bool Success, string Message)> SendToOperationCenterAsync(int eventId, int idUtente)
+        {
+            return await ExecuteAlarmActionAsync($"api/Event/SendToOperationCenterv2?eventID={eventId}&idutente={idUtente}");
+        }
+
+        private async Task<(bool Success, string Message)> ExecuteAlarmActionAsync(string url)
+        {
+            var mail = _sessionStore.Mail;
+            var password = _sessionStore.LoginPassword;
+
+            if (string.IsNullOrWhiteSpace(mail) || string.IsNullOrWhiteSpace(password))
+                return (false, "Credenziali non presenti in sessione.");
+
+            var base64 = Convert.ToBase64String(Encoding.UTF8.GetBytes($"{mail}:{password}"));
+
+            using var request = new HttpRequestMessage(HttpMethod.Get, url);
+            request.Headers.Authorization = new AuthenticationHeaderValue("Basic", base64);
+
+            using var response = await _httpClient.SendAsync(request);
+            var message = (await response.Content.ReadAsStringAsync()).Trim().Trim('"');
+
+            if (!response.IsSuccessStatusCode)
+                return (false, string.IsNullOrWhiteSpace(message) ? "Errore durante la richiesta." : message);
+
+            if (string.IsNullOrWhiteSpace(message))
+                return (true, "OK");
+
+            return message.Contains("non valido", StringComparison.OrdinalIgnoreCase)
+                ? (false, message)
+                : (true, message);
+        }
+
         private void SetBasicAuthHeader(string username, string password)
         {
             var authString = $"{username}:{password}";

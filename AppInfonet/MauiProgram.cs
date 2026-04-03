@@ -34,6 +34,7 @@ namespace AppInfonet
             builder.Services.AddTransient<BersaglioMapEditPage>();
 
             builder.Services.AddTransient<AppInfonet.Pages.DispositiviPage>();
+            builder.Services.AddTransient<AllarmiPage>();
      
             builder.Services.AddTransient<BersagliPage>();
             builder.Services.AddTransient<BersaglioDettaglioPage>();

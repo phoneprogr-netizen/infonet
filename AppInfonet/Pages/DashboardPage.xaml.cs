@@ -34,7 +34,12 @@ public partial class DashboardPage : ContentPage
 
     private async void OnAllarmiTapped(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new AllarmiPage());
+        var services = Application.Current?.Handler?.MauiContext?.Services;
+        if (services != null)
+        {
+            var allarmiPage = services.GetRequiredService<AllarmiPage>();
+            await Navigation.PushAsync(allarmiPage);
+        }
     }
 
     private async void OnBersagliTapped(object sender, EventArgs e)
