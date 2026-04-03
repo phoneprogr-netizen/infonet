@@ -72,6 +72,12 @@
                                 HorizontalTextAlignment="Start" />
                     </VerticalStackLayout>
                 </Frame>
+
+                <Label x:Name="VersioneLabel"
+                       FontSize="12"
+                       TextColor="#6B6B6B"
+                       HorizontalOptions="Center"
+                       Text="Versione -" />
             </VerticalStackLayout>
         </ScrollView>
 
