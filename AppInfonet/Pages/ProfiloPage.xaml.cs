@@ -19,6 +19,7 @@ namespace AppInfonet.Pages
             MailLabel.Text = string.IsNullOrWhiteSpace(_sessionStore.Mail) ? "mail non disponibile" : _sessionStore.Mail;
             UsernameLabel.Text = string.IsNullOrWhiteSpace(_sessionStore.Username) ? "username non disponibile" : _sessionStore.Username;
             CodiceClienteLabel.Text = $"Codice cliente: {_sessionStore.IdCliente?.ToString() ?? "-"}";
+            VersioneLabel.Text = $"Versione {AppInfo.Current.VersionString} ({AppInfo.Current.BuildString})";
         }
 
         private async void OnModificaProfiloClicked(object sender, EventArgs e)
