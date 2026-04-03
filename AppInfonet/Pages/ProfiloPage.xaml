@@ -1,0 +1,29 @@
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AppInfonet.Pages.ProfiloPage"
+    Title="Profilo"
+    BackgroundColor="#F4F6F9">
+
+    <Grid RowDefinitions="*,Auto">
+
+        <!-- Contenuto futuro -->
+        <VerticalStackLayout Padding="20">
+            <Label Text="Profilo Utente"
+                   FontSize="24"
+                   FontAttributes="Bold"/>
+        </VerticalStackLayout>
+
+        <!-- Bottone Logout in basso -->
+        <Button
+            Grid.Row="1"
+            Text="Logout"
+            BackgroundColor="#DC2626"
+            TextColor="White"
+            HeightRequest="50"
+            Margin="20"
+            CornerRadius="12"
+            Clicked="OnLogoutClicked"/>
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppInfonet.Pages.BersagliPage"
+             x:Name="BersagliPageRoot"
+             Title="Bersagli">
+
+    <Grid Padding="16" RowDefinitions="Auto,Auto,*" RowSpacing="12">
+
+        <!-- Barra bottoni in alto -->
+        <Grid Grid.Row="0" ColumnDefinitions="*,*,Auto" ColumnSpacing="10">
+
+            <Button Text="Crea nuovo"
+                    Clicked="OnCreateTargetClicked"
+                    CornerRadius="10"
+                    HeightRequest="44" />
+
+            <Button Grid.Column="1"
+                    Text="Mappa"
+                    Clicked="OnMapClicked"
+                    CornerRadius="10"
+                    HeightRequest="44" />
+
+            <Button Grid.Column="2"
+                    Text="Ricarica"
+                    Clicked="OnReloadClicked"
+                    CornerRadius="10"
+                    HeightRequest="44" />
+        </Grid>
+
+        <ActivityIndicator
+        IsRunning="{Binding IsLoading, Source={x:Reference BersagliPageRoot}}"
+        IsVisible="{Binding IsLoading, Source={x:Reference BersagliPageRoot}}"
+        HeightRequest="30" />   
+
+        <!-- Lista bersagli -->
+        <CollectionView Grid.Row="2"
+                        x:Name="BersagliList"
+                        SelectionMode="None">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="0,0,0,10"
+                           Padding="12"
+                           CornerRadius="10"
+                           HasShadow="True">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnItemTapped"
+                              CommandParameter="{Binding Id}" />
+                        </Frame.GestureRecognizers>
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="16"/>
+                            <Label Text="{Binding Description}" FontSize="13" TextColor="Gray"/>
+                            <Label FontSize="12"
+                                   Text="{Binding Devices.Count, StringFormat='Dispositivi: {0}'}"
+                                   TextColor="Gray"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </Grid>
+</ContentPage>

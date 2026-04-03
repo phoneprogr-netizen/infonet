@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppInfonet.Pages.LoginPage"
+             Title="Login">
+    <Grid RowDefinitions="*,Auto">
+
+        <!-- CONTENUTO CENTRALE -->
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout
+                Padding="30"
+                Spacing="20"
+                VerticalOptions="Center">
+
+                <!-- LOGO -->
+                <Image
+                    Source="logo.png"
+                    HeightRequest="120"
+                    HorizontalOptions="Center" />
+
+                <!-- TITOLO -->
+                <Label
+                    Text="LOGIN"
+                    FontSize="28"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    Margin="0,10,0,0"/>
+
+                <!-- SOTTOTITOLO -->
+                <Label
+                    Text="Inserisci le tue credenziali per accedere."
+                    FontSize="14"
+                    TextColor="Gray"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"/>
+
+                <!-- Username -->
+                <Frame
+                    CornerRadius="10"
+                    BorderColor="Gray"
+                    HasShadow="False"
+                    Padding="10">
+
+                    <Entry
+                        x:Name="UsernameEntry"
+                        Placeholder="Username"
+                        BackgroundColor="Transparent"/>
+                </Frame>
+
+                <!-- Password -->
+                <Frame
+                    CornerRadius="10"
+                    BorderColor="Gray"
+                    HasShadow="False"
+                    Padding="10">
+
+                    <Entry
+                        x:Name="PasswordEntry"
+                        Placeholder="Password"
+                        IsPassword="True"
+                        BackgroundColor="Transparent"/>
+                </Frame>
+
+                <!-- Bottone Login -->
+                <Button
+                    Text="Login"
+                    CornerRadius="10"
+                    HeightRequest="45"
+                    Clicked="OnLoginClicked"/>
+
+                <!-- LABEL ERRORE -->
+                <Label
+                    x:Name="ErrorLabel"
+                    Text=""
+                    TextColor="Red"
+                    FontSize="14"
+                    HorizontalOptions="Center"
+                    IsVisible="False"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- VERSIONE APP IN BASSO -->
+        <Label
+            x:Name="VersionLabel"
+            Grid.Row="1"
+            HorizontalOptions="Center"
+            Margin="0,10"
+            FontSize="12"
+            TextColor="Gray"/>
+    </Grid>
+</ContentPage>
+

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppInfonet.Pages.BersaglioDettaglioPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Dettaglio bersaglio">
+
+    <Grid RowDefinitions="Auto,Auto,*,Auto" Padding="16">
+
+        <!-- Nome + bottone mappa -->
+        <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto" Margin="0,0,0,10">
+            <Entry x:Name="NameEntry" Placeholder="Nome bersaglio" FontSize="18"/>
+            <Button Grid.Column="1" Text="Modifica su mappa" Clicked="OnMapClicked" />
+        </Grid>
+
+        <!-- Descrizione -->
+        <Editor Grid.Row="1"
+                x:Name="DescriptionEditor"
+                Placeholder="Descrizione"
+                AutoSize="TextChanges"
+                MinimumHeightRequest="70"
+                Margin="0,0,0,10"/>
+
+        <!-- Devices -->
+        <CollectionView Grid.Row="2" x:Name="DevicesList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="0,0,0,10" Padding="12" CornerRadius="10" HasShadow="True">
+                        <VerticalStackLayout Spacing="8">
+
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Label Text="{Binding Plate}" FontAttributes="Bold" FontSize="15"/>
+                                <Label Grid.Column="1" Text="{Binding CodPerif}" FontSize="11" TextColor="Gray" />
+                            </Grid>
+
+                            <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="6">
+                                <VerticalStackLayout>
+                                    <Label Text="Enter" FontSize="11" HorizontalOptions="Center"/>
+                                    <Switch IsToggled="{Binding AlarmOnEnter}" />
+                                </VerticalStackLayout>
+
+                                <VerticalStackLayout Grid.Column="1">
+                                    <Label Text="Exit" FontSize="11" HorizontalOptions="Center"/>
+                                    <Switch IsToggled="{Binding AlarmOnExit}" />
+                                </VerticalStackLayout>
+
+                                <VerticalStackLayout Grid.Column="2">
+                                    <Label Text="Start" FontSize="11" HorizontalOptions="Center"/>
+                                    <Switch IsToggled="{Binding AlarmOnStart}" />
+                                </VerticalStackLayout>
+
+                                <VerticalStackLayout Grid.Column="3">
+                                    <Label Text="Stop" FontSize="11" HorizontalOptions="Center"/>
+                                    <Switch IsToggled="{Binding AlarmOnStop}" />
+                                </VerticalStackLayout>
+                            </Grid>
+
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Salva -->
+        <Button Grid.Row="3"
+                Text="Salva bersaglio"
+                Margin="0,12,0,0"
+                FontSize="18"
+                CornerRadius="12"
+                BackgroundColor="{DynamicResource Primary}"
+                TextColor="White"
+                Clicked="OnSaveClicked"/>
+    </Grid>
+</ContentPage>

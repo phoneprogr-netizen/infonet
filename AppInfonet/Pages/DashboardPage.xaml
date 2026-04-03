@@ -1,0 +1,175 @@
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AppInfonet.Pages.DashboardPage"
+    BackgroundColor="#F4F6F9">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="25">
+
+            <!-- HEADER -->
+            <Grid ColumnDefinitions="*,Auto">
+
+                <VerticalStackLayout>
+                    <Label Text="Dashboard"
+                           FontSize="28"
+                           FontAttributes="Bold"
+                           TextColor="#1E293B"/>
+
+                    <!--<Label Text="Home"
+                           FontSize="14"
+                           TextColor="Gray"/>-->
+                </VerticalStackLayout>
+
+                <ImageButton Source="iconprofilo.png"
+                             HeightRequest="40"
+                             WidthRequest="40"
+                             BackgroundColor="Transparent"
+                             Clicked="OnProfileClicked"/>
+            </Grid>
+
+            <!-- BENVENUTO + BOTTONE PROFILO -->
+            <Frame Padding="15"
+       CornerRadius="15"
+       HasShadow="False"
+       BackgroundColor="White">
+
+                <Grid ColumnDefinitions="*,Auto"
+          VerticalOptions="Center">
+
+                    <!-- Testo Benvenuto -->
+                    <Label Text="{Binding UserEmail, StringFormat='Ciao {0}'}"
+               FontSize="18"
+               TextColor="#334155"
+               VerticalOptions="Center"/>
+
+                    <!-- Bottone Profilo -->
+                    <ImageButton Grid.Column="1"
+                     Source="profile_icon.png"
+                     HeightRequest="32"
+                     WidthRequest="32"
+                     BackgroundColor="Transparent"
+                     Clicked="OnProfileClicked"/>
+                </Grid>
+            </Frame>
+
+            <!-- BOTTONI GRANDI VERTICALI -->
+            <VerticalStackLayout Spacing="15">
+
+                <!-- DISPOSITIVI -->
+                <Frame CornerRadius="20"
+           HasShadow="True"
+           Padding="20"
+           HeightRequest="80"
+           BackgroundColor="#2563EB">
+
+                    <Grid ColumnDefinitions="Auto,*"
+              VerticalOptions="Center">
+
+                        <Label Text="📱"
+                   FontSize="36"
+                   VerticalOptions="Center"/>
+
+                        <Label Grid.Column="1"
+                   Text="Dispositivi"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   VerticalOptions="Center"
+                   Margin="15,0,0,0"/>
+                    </Grid>
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnDispositiviTapped"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <!-- ALLARMI -->
+                <Frame CornerRadius="20"
+           HasShadow="True"
+           Padding="20"
+           HeightRequest="80"
+           BackgroundColor="#DC2626">
+
+                    <Grid ColumnDefinitions="Auto,*"
+              VerticalOptions="Center">
+
+                        <Label Text="🚨"
+                   FontSize="36"
+                   VerticalOptions="Center"/>
+
+                        <Label Grid.Column="1"
+                   Text="Allarmi"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   VerticalOptions="Center"
+                   Margin="15,0,0,0"/>
+                    </Grid>
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnAllarmiTapped"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <!-- BERSAGLI -->
+                <Frame CornerRadius="20"
+           HasShadow="True"
+           Padding="20"
+           HeightRequest="80"
+           BackgroundColor="#059669">
+
+                    <Grid ColumnDefinitions="Auto,*"
+              VerticalOptions="Center">
+
+                        <Label Text="📍"
+                   FontSize="36"
+                   VerticalOptions="Center"/>
+
+                        <Label Grid.Column="1"
+                   Text="Bersagli"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   VerticalOptions="Center"
+                   Margin="15,0,0,0"/>
+                    </Grid>
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnBersagliTapped"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <!-- TRAGITTI -->
+                <Frame CornerRadius="20"
+           HasShadow="True"
+           Padding="20"
+           HeightRequest="80"
+           BackgroundColor="#7C3AED">
+
+                    <Grid ColumnDefinitions="Auto,*"
+              VerticalOptions="Center">
+
+                        <Label Text="🛣"
+                   FontSize="36"
+                   VerticalOptions="Center"/>
+
+                        <Label Grid.Column="1"
+                   Text="Tragitti"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   VerticalOptions="Center"
+                   Margin="15,0,0,0"/>
+                    </Grid>
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTragittiTapped"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
