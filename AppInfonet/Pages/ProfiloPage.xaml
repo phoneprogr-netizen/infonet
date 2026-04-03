@@ -2,7 +2,8 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="AppInfonet.Pages.ProfiloPage"
-    Title="Profilo">
+    Title="Profilo"
+    BackgroundColor="White">
 
     <Grid RowDefinitions="*,Auto">
         <ScrollView>
@@ -18,53 +19,59 @@
                         <Image Source="iconprofilo.png"
                                HeightRequest="70"
                                WidthRequest="70"
-                               HorizontalOptions="Start" />
+                               HorizontalOptions="Center" />
 
                         <Label x:Name="MailLabel"
                                FontSize="16"
                                FontAttributes="Bold"
                                TextColor="#1D1D1B"
+                               HorizontalOptions="Center"
+                               HorizontalTextAlignment="Center"
                                Text="mail@cliente.it" />
 
                         <Label x:Name="UsernameLabel"
                                FontSize="14"
                                TextColor="#1D1D1B"
+                               HorizontalOptions="Center"
+                               HorizontalTextAlignment="Center"
                                Text="Username" />
 
                         <Label x:Name="CodiceClienteLabel"
                                FontSize="14"
                                TextColor="#1D1D1B"
+                               HorizontalOptions="Center"
+                               HorizontalTextAlignment="Center"
                                Text="Codice cliente: -" />
                     </VerticalStackLayout>
                 </Frame>
 
-                <Frame Padding="0" CornerRadius="12" HasShadow="False">
+                <Frame Padding="0" CornerRadius="12" HasShadow="False" BackgroundColor="White">
                     <VerticalStackLayout Spacing="0">
                         <Button Text="Modifica profilo"
                                 Clicked="OnModificaProfiloClicked"
-                                BackgroundColor="Transparent"
-                                TextColor="#1D1D1B"
+                                BackgroundColor="White"
+                                TextColor="Black"
                                 HorizontalOptions="Fill" />
                         <BoxView HeightRequest="1" Opacity="0.3" />
 
                         <Button Text="Manuale d'uso"
                                 Clicked="OnManualeClicked"
-                                BackgroundColor="Transparent"
-                                TextColor="#1D1D1B"
+                                BackgroundColor="White"
+                                TextColor="Black"
                                 HorizontalOptions="Fill" />
                         <BoxView HeightRequest="1" Opacity="0.3" />
 
                         <Button Text="Termini e condizioni"
                                 Clicked="OnTerminiClicked"
-                                BackgroundColor="Transparent"
-                                TextColor="#1D1D1B"
+                                BackgroundColor="White"
+                                TextColor="Black"
                                 HorizontalOptions="Fill" />
                         <BoxView HeightRequest="1" Opacity="0.3" />
 
                         <Button Text="Richiesta eliminazione profilo"
                                 Clicked="OnDeleteProfileClicked"
-                                BackgroundColor="Transparent"
-                                TextColor="#8B1E1E"
+                                BackgroundColor="White"
+                                TextColor="Black"
                                 HorizontalOptions="Fill" />
                     </VerticalStackLayout>
                 </Frame>
@@ -84,6 +91,8 @@
             HeightRequest="50"
             Margin="20"
             CornerRadius="12"
+            BackgroundColor="White"
+            TextColor="Black"
             Clicked="OnLogoutClicked"/>
     </Grid>
 
